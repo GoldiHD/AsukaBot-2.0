@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AsukaBot_2._0.Module.RPGModule;
+using AsukaBot_2._0.Module.RPGModule.Logic.Enemy;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,8 +12,12 @@ namespace AsukaBot_2._0.Classes
     class SingleTon
     {
         private static Discord.IDiscordClient discordRefence;
+        private static MonsterDatabase MyMonsterDatabaseInstace;
         private static ConsoleChecker ConsoleCheckerInstance;
         private static Thread CheckConsole;
+        private static Thread RPGThreadCheck;
+        private static RPGMain RPGInstance;
+        //private static RPGThreadChecker RPGThreadCheckerInstance;
 
 
         public static void SetClient(Discord.IDiscordClient client)
@@ -42,23 +48,23 @@ namespace AsukaBot_2._0.Classes
             }
         }
 
-        //public static MonsterDatabase GetMonsterDatabaseInstace()
-        //{
-        //    if (MyMonsterDatabaseInstace == null)
-        //    {
-        //        MyMonsterDatabaseInstace = new MonsterDatabase();
-        //    }
-        //    return MyMonsterDatabaseInstace;
-        //}
+        public static MonsterDatabase GetMonsterDatabaseInstace()
+        {
+            if (MyMonsterDatabaseInstace == null)
+            {
+                MyMonsterDatabaseInstace = new MonsterDatabase();
+            }
+            return MyMonsterDatabaseInstace;
+        }
 
-        //public static ConsoleChecker GetConsoleCheckerInstance()
-        //{
-        //    if (ConsoleCheckerInstance == null)
-        //    {
-        //        ConsoleCheckerInstance = new ConsoleChecker();
-        //    }
-        //    return ConsoleCheckerInstance;
-        //}
+        public static ConsoleChecker GetConsoleCheckerInstance()
+        {
+            if (ConsoleCheckerInstance == null)
+            {
+                ConsoleCheckerInstance = new ConsoleChecker();
+            }
+            return ConsoleCheckerInstance;
+        }
 
         //public static RPGThreadChecker GetRPGThread()
         //{
@@ -69,17 +75,17 @@ namespace AsukaBot_2._0.Classes
         //    return RPGThreadCheckerInstance;
         //}
 
-        //public static RPGMain GetRPG()
-        //{
-        //    return RPGInstance;
-        //}
+        public static RPGMain GetRPG()
+        {
+            return RPGInstance;
+        }
 
-        //public static void SetRPG(RPGMain instance)
-        //{
-        //    if (RPGInstance == null)
-        //    {
-        //        RPGInstance = instance;
-        //    }
-        //}
+        public static void SetRPG(RPGMain instance)
+        {
+            if (RPGInstance == null)
+            {
+                RPGInstance = instance;
+            }
+        }
     }
 }

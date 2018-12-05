@@ -37,14 +37,16 @@ namespace AsukaBot_2._0.Core
                     client.Log += Log;
                     client.UserJoined += AnnouceUserJoined;
                     await ChangeStatus();
-                    await RegisterCommandAsync();
                     try
                     {
+                        await RegisterCommandAsync();
+
                         await client.LoginAsync(TokenType.Bot, botToken);
                     }
-                    catch
+                    catch (Exception ex)
                     {
                         Console.WriteLine("your token seems to be incorrect, check credentials.txt and see if you have given it the correct token yet\n[Press enter to continue]");
+                        Console.WriteLine(ex);
                         Console.ReadKey();
                         Environment.Exit(0);
                     }
@@ -77,7 +79,7 @@ namespace AsukaBot_2._0.Core
 
         public async Task ChangeStatus()
         {
-            string[] GameStatues = new string[] { "Working on code with senpai", "Deleting code", "Selling user data to FBI", "Creating virus", "9/11 was an inside job", "The earth is flat", "Leading the communist party", "Making memes", "Ruining peoples lifes", "iuewfusdnkvnsoefnsef, i feel a sleep on the keyboard again", "Being a chad", "delaying berserk", "Reading shitty managa", "Investigating 9/11", "totally not prepering for the singularity", "Goldi puts the I in autism", "Missing what makes me whole", "Crying myself to sleep yet again", "Laugthing with her again", "Dreaming of how it could have been"};
+            string[] GameStatues = new string[] { "Working on code with senpai", "Deleting code", "Selling user data to FBI", "Creating virus", "9/11 was an inside job", "The earth is flat", "Leading the communist party", "Making memes", "Ruining peoples lifes", "iuewfusdnkvnsoefnsef, i fell a sleep on the keyboard again", "Being a chad", "delaying berserk", "Reading shitty managa", "Investigating 9/11", "totally not prepering for the singularity", "Goldi puts the I in autism", "Missing what makes me whole", "Crying myself to sleep yet again", "Laugthing with her again", "Dreaming of how it could have been", "For the emperor" };
             await client.SetGameAsync(GameStatues[RNG.Next(0, GameStatues.Length)]);
         }
 

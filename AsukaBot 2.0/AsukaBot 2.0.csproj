@@ -135,9 +135,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\ConsoleChecker.cs" />
+    <Compile Include="Classes\Services\MultipleKeyDictionary.cs" />
     <Compile Include="Classes\SingleTon.cs" />
     <Compile Include="Core\MyBot.cs" />
+    <Compile Include="Module\Games\BasicGameModule.cs" />
+    <Compile Include="Module\Maths\MathsMain.cs" />
     <Compile Include="Module\MusicModule\Music.cs" />
+    <Compile Include="Module\RPGModule\Bank\RPGBank.cs" />
+    <Compile Include="Module\RPGModule\Logic\Classes\ClassBase.cs" />
+    <Compile Include="Module\RPGModule\Logic\Enemy\EnemyBase.cs" />
+    <Compile Include="Module\RPGModule\Logic\Enemy\MonsterDatabase.cs" />
+    <Compile Include="Module\RPGModule\Logic\Guilds\Guild.cs" />
+    <Compile Include="Module\RPGModule\Logic\Inventory.cs" />
+    <Compile Include="Module\RPGModule\Logic\Items\ArmorItem.cs" />
+    <Compile Include="Module\RPGModule\Logic\Items\BaseItem.cs" />
+    <Compile Include="Module\RPGModule\Logic\Items\Consumable.cs" />
+    <Compile Include="Module\RPGModule\Logic\Items\CraftingItem.cs" />
+    <Compile Include="Module\RPGModule\Logic\Items\MagicAttacks.cs" />
+    <Compile Include="Module\RPGModule\Logic\Items\WeaponItem.cs" />
+    <Compile Include="Module\RPGModule\Logic\Player.cs" />
+    <Compile Include="Module\RPGModule\Logic\Questing\QuestManager.cs" />
+    <Compile Include="Module\RPGModule\Logic\Stats.cs" />
+    <Compile Include="Module\RPGModule\Logic\StatsModifer.cs" />
+    <Compile Include="Module\RPGModule\RPGMain.cs" />
     <Compile Include="Module\StandardCommands\StandardCommandModule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -147,11 +167,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Classes\Services\" />
     <Folder Include="Module\CustomCommand\" />
-    <Folder Include="Module\Games\" />
-    <Folder Include="Module\Maths\" />
-    <Folder Include="Module\RPGModule\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

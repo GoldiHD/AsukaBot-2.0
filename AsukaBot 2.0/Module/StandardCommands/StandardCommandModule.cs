@@ -218,7 +218,7 @@ namespace AsukaBot_2._0.Module.StandardCommands
         [Command("Chibi")]
         public async Task FuckChibi()
         {
-            await ReplyAsync("https://youtu.be/8fvOdtXeFjM?t=252");
+            await ReplyAsync("<https://youtu.be/8fvOdtXeFjM?t=252>");
         }
 
         [Command("back")]
