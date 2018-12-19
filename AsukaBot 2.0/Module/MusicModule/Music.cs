@@ -55,31 +55,33 @@ namespace AsukaBot_2._0.Module.MusicModule
         [Command("join")]
         public async Task JoinChannel(IVoiceChannel Currenchannel = null)
         {
-
-            channel = (Context.Message.Author as IGuildUser)?.VoiceChannel;
-
-            audioClient = await channel.ConnectAsync();
+            if (CheckIfUserIsInAChannel(Context))
+            {
+                channel = (Context.Message.Author as IGuildUser)?.VoiceChannel;
+                audioClient = await channel.ConnectAsync();
+            }
         }
 
         [Command("leave")]
         public async Task LeaveChannel()
         {
-            Console.WriteLine(channel.Bitrate);
+            //Console.WriteLine(channel.Bitrate);
             await audioClient.StopAsync();
         }
 
         [Command("play")]
         public async Task PlayMusic([Remainder]string url)
         {
-
-
-            PreQueue.Enqueue(url);
-
-            if (audioClient == null)
+            if (CheckIfUserIsInAChannel(Context))
             {
-                channel = (Context.Message.Author as IGuildUser)?.VoiceChannel;
+                PreQueue.Enqueue(url);
+
+                if (audioClient == null)
+                {
+                    channel = (Context.Message.Author as IGuildUser)?.VoiceChannel;
+                }
+                await ReplyAsync("Song have been queued");
             }
-            await ReplyAsync("Song have been queued");
         }
 
         [Command("pause")]
@@ -97,10 +99,7 @@ namespace AsukaBot_2._0.Module.MusicModule
         [Command("skip")]
         public async Task Killmusic()
         {
-            Console.WriteLine(player.Status);
-            TokenMaster.Cancel();
-            Console.WriteLine(player.Status);
-            await ReplyAsync("music stopped");
+            //stop the music
         }
 
         [Command("current")]
@@ -154,6 +153,19 @@ namespace AsukaBot_2._0.Module.MusicModule
                 await ReplyAsync("Error no songs in playlist");
             }
 
+        }
+
+        private bool CheckIfUserIsInAChannel(ICommandContext context)
+        {
+            if ((Context.Message.Author as IGuildUser).VoiceChannel != null)
+            {
+                return true;
+            }
+            else
+            {
+                context.Channel.SendMessageAsync("You must be in a voice channel before I can join you/play music");
+                return false;
+            }
         }
 
         public async void DownloadAndQueue()

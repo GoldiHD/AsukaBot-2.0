@@ -134,10 +134,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\CustomCommandSaveLoadere.cs" />
     <Compile Include="Classes\ConsoleChecker.cs" />
+    <Compile Include="Classes\SaveLoadRPGData.cs" />
     <Compile Include="Classes\Services\MultipleKeyDictionary.cs" />
     <Compile Include="Classes\SingleTon.cs" />
     <Compile Include="Core\MyBot.cs" />
+    <Compile Include="Module\CustomCommand\CustomCommandBase.cs" />
+    <Compile Include="Module\CustomCommand\CustomCommandModule.cs" />
     <Compile Include="Module\Games\BasicGameModule.cs" />
     <Compile Include="Module\Maths\MathsMain.cs" />
     <Compile Include="Module\MusicModule\Music.cs" />
@@ -166,8 +170,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Module\CustomCommand\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

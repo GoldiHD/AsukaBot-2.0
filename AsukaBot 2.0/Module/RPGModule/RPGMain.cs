@@ -1618,18 +1618,18 @@ namespace AsukaBot_2._0.Module.RPGModule
 
         #endregion
 
-        //        #region Bank
+        #region Bank
         //        [Command("")]
         //        public async Task DepositToBank(int amount)
         //        {
         //            int temp = DoIExist(Context.Message.Author.Username);
         //        }
-        //        #endregion
+        #endregion
 
-        //        private void CheckHealth(string username)
-        //        {
-        //            AllPlayers[DoIExist(username)].GetStats().GetVitallity().GetMyHealth();
-        //        }
+        private void CheckHealth(string username)
+        {
+            AllPlayers[DoIExist(username)].GetStats().GetVitallity().GetMyHealth();
+        }
 
         private int DoIExist(string username)
         {

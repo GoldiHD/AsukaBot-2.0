@@ -37,16 +37,26 @@ namespace AsukaBot_2._0.Core
                     client.Log += Log;
                     client.UserJoined += AnnouceUserJoined;
                     await ChangeStatus();
+
                     try
                     {
                         await RegisterCommandAsync();
+                    }
+                    catch
+                    {
+                        Console.WriteLine("");
+                        Console.ReadKey();
+                    }
+
+                    try
+                    {
+                      
 
                         await client.LoginAsync(TokenType.Bot, botToken);
                     }
-                    catch (Exception ex)
+                    catch
                     {
                         Console.WriteLine("your token seems to be incorrect, check credentials.txt and see if you have given it the correct token yet\n[Press enter to continue]");
-                        Console.WriteLine(ex);
                         Console.ReadKey();
                         Environment.Exit(0);
                     }
